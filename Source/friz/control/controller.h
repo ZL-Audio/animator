@@ -71,7 +71,7 @@ private:
     /// @brief  keep a running sum of intervals so we can just divide.
     std::atomic<int> sum { 0 };
     std::atomic<int> updateCount { 0 };
-    int index { 0 };
+    size_t index { 0 };
 };
 
 class Controller
@@ -150,7 +150,7 @@ public:
      *
      * @return float
      */
-    float getFrameRate () const override { return isRunning () ? frameRate : 0.f; }
+    float getFrameRate () const override { return isRunning () ? static_cast<float> (frameRate) : 0.f; }
 
     /**
      * @brief Called whenever we need to start timer callbacks flowing.

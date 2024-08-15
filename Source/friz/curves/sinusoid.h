@@ -46,8 +46,8 @@ public:
      * @param endPhase   end phase, typically 0..2pi.
      * @param duration   duration in milliseconds.
      */
-    Sinusoid (float startPhase_, float endPhase_, int duration)
-    : TimedValue (startPhase_, endPhase_, duration)
+    Sinusoid (float startPhase_, float endPhase_, int duration_)
+    : TimedValue (startPhase_, endPhase_, duration_)
     , startPhase { startPhase_ }
     , endPhase { endPhase_ }
     {
@@ -88,9 +88,9 @@ public:
      * @param duration  duration in frames.
      */
 
-    Sinusoid (int startQuad, int endQuad, int duration)
-    : Sinusoid (startQuad * juce::MathConstants<float>::halfPi,
-                endQuad * juce::MathConstants<float>::halfPi, duration)
+    Sinusoid (int startQuad, int endQuad, int duration_)
+    : Sinusoid (static_cast<float> (startQuad) * juce::MathConstants<float>::halfPi,
+                static_cast<float> (endQuad) * juce::MathConstants<float>::halfPi, duration_)
     {
     }
 
