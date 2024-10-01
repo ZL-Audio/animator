@@ -365,7 +365,7 @@ private:
  *          AnimatedValue objects being created.
  * @return std::unique_ptr<Animation<ValueCount>> pointer to the animation.
  */
-template <class T, int ValueCount, class... Args>
+template <class T, size_t ValueCount, class... Args>
 std::unique_ptr<Animation<ValueCount>> makeAnimation (
     int id, std::array<float, ValueCount>&& from, std::array<float, ValueCount>&& to,
     Args... args)
